@@ -1,10 +1,10 @@
 CC = g++
 
-SpectrumAnalyser: main.o
+a.out: main.o
 	$(CC) main.o -o SpectrumAnalyser
 
 main.o: main.cpp
 	$(CC) -c main.cpp
 
 clean:
-	rm *.o SpectrumAnalyser Summary.txt output.csv
+	rm *.o a.out Summary.txt output.csv

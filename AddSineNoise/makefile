@@ -1,7 +1,7 @@
 CC=g++
 
-AddSignNoise: main.o
+a.out: main.o
 	$(CC) main.cpp -o AddSignNoise
 
 clean:
-	rm AddSignNoise *.o 
+	rm *.o a.out
