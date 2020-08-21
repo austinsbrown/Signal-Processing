@@ -1,6 +1,6 @@
 from math import sin, cos, pi
 
-m = 100                                     # must have an odd number of elements, be careful of indexing
+m = 101                                     # must have an odd number of elements, be careful of indexing
 fc = .14                                    # cutoff frequincy
 h = []                                     
 
