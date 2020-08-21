@@ -14,3 +14,18 @@ for i in range(m):
     
 for i in range(m):                          # normalize the filter
     h[i] = h[i]/sum(h)
+
+file = open('header.h', 'w')                
+file.write("const double FILTER[" + str(m) + "] = \n")
+file.write("{")
+
+for i in range(m):
+    file.write(str(h[i]))
+    if(i != m-1):
+        file.write(', ')
+    if((i+1) % 4 == 0):
+        file.write('\n')
+
+file.write('}')
+
+file.close()
