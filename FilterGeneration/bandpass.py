@@ -35,6 +35,10 @@ b[int((m-1)/2)] = b[int((m-1)/2)] + 1
 
 for i in range(m):                              # add together to form band stop filter
     h.append(a[i] + b[i])
+    
+for i in range(m):                              # convert to band pass filter
+    h[i] = h[i] * -1
+h[int((m-1)/2)] = h[int((m-1)/2)] + 1
 
 file = open('header.h', 'w')                
 file.write("const double FILTER[" + str(m) + "] = \n")
