@@ -1,8 +1,10 @@
 from math import sin, cos, pi
+import matplotlib.pyplot as p
 
-m = 101                                     # must have an odd number of elements, be careful of indexing
-fc = .14                                    # cutoff frequincy
-h = []                                     
+m = int(input("Enter the filter length (must be an odd number): "))            # must have an odd number of elements, be careful of indexing
+fc = float(input("Enter the cuttoff frequncy: ") )                             # cutoff frequincy                              
+                             
+h = []                                                                         # holds the filter                                 
 
 for i in range(m):
     if(i-m/2 == 0):
@@ -12,7 +14,7 @@ for i in range(m):
         h.append(sin(2*pi*fc * (i-m/2)) / (i-m/2))
         h[i] = h[i] * (0.54 - 0.46*cos(2*pi*i/m))
     
-for i in range(m):                          # normalize the filter
+for i in range(m):                                                             # normalize the filter
     h[i] = h[i]/sum(h)
 
 file = open('header.h', 'w')                
@@ -27,5 +29,11 @@ for i in range(m):
         file.write('\n')
 
 file.write('}')
-
 file.close()
+
+p.plot(h, color='red')
+p.xlabel('Sample Number')
+p.ylabel('Filter Coefficient')
+p.grid(True)
+p.style.use('ggplot')
+p.savefig('filter.png')
